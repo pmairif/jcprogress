@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2009 Patrick Mairif.
+ The program is distributed under the terms of the Apache License (ALv2).
+-->
+
+<project name="jcprogress" default="all">
+	<property name="dir.classes"	value="bin" />
+	<property name="dir.src"		value="src" />
+	<property name="dir.javadoc"	value="doc/api" />
+	<property name="dir.lib"		value="lib" />
+	<property name="dir.jar"		value="jar" />
+	<property name="dir.dist"		value="dist" />
+	
+	<property file="version.properties"/>
+		
+	<!-- the encoding of the java source code -->
+	<property name="src.encoding" value="UTF-8" />
+
+	<property file="lib/versions.properties/" />
+
+	<path id="classpath">
+		<pathelement path="${classpath}"/>
+    </path>
+	
+	<target name="all" depends="javadoc, jar, dist, test"
+                   description="create the jars and javadoc"/>
+
+	<!-- ====================================================================
+	= distribution
+	===================================================================== -->
+	<target name="dist" depends="jar" description="create distribution files">
+		<jcprogress-dist dest="${dir.dist}/jcprogress-${version.jcprogress}"/>
+		<zip basedir="${dir.dist}"
+			includes="jcprogress-${version.jcprogress}/**/*"
+			destfile="${dir.dist}/jcprogress-${version.jcprogress}.zip"
+		/>
+	</target>
+	
+	<macrodef name="jcprogress-dist">
+		<attribute name="dest"/>
+		
+		<sequential>
+			<mkdir dir="@{dest}/lib"/>
+
+			<copy file="${dir.jar}/jcprogress.jar" tofile="@{dest}/lib/jcprogress-${version.jcprogress}.jar" />
+			<zip basedir="src" file="@{dest}/lib/jcprogress-${version.jcprogress}-src.zip"/>
+			
+			<copy todir="@{dest}/lib">
+				<fileset dir="lib" includes="commons-logging-${version.commons-logging}.jar" />
+			</copy>
+			
+			<copy todir="@{dest}">
+				<fileset dir="doc" includes="LICENSE NOTICE" />
+			</copy>
+			<copy todir="@{dest}" filtering="true">
+				<filterset>
+					<filter token="VERSION" value="${version.jcprogress}"/>
+				</filterset>
+				<fileset dir="doc" includes="README" />
+			</copy>
+		</sequential>
+	</macrodef>
+	
+	<target name="clean-dist">
+		<delete includeemptydirs="true">
+			<fileset dir="${dir.dist}" includes="**/*" />
+		</delete>
+	</target>
+	
+	<!-- ====================================================================
+	= compilation
+	===================================================================== -->
+	
+	<target name="compile" description="just compile the source code">
+		<mkdir dir="${dir.classes}"/>
+    	<javac srcdir="${dir.src}" destdir="${dir.classes}" encoding="${src.encoding}" source="1.6">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile" description="create jcprogress.jar">
+		<mkdir dir="${dir.jar}"/>
+	    <jar destfile="${dir.jar}/jcprogress.jar" basedir="${dir.classes}">
+	    	<manifest>
+	    		<attribute name="Main-Class"	value="net.sf.jcprogress.demo.ConsoleDemo"/>
+	    		<attribute name="Class-Path"	value="commons-logging-${version.commons-logging}.jar"/>
+    			<attribute name="Built-By"		value="${user.name}"/>
+	    	</manifest>
+	    	<metainf dir="doc" includes="LICENSE NOTICE" />
+	    </jar>
+	</target>
+
+	<target name="clean-jar" description="delete the jar files">
+		<delete file="${dir.jar}/progress.jar" />
+	</target>
+	
+	<target name="clean-classes" description="removes the compiled stuff">
+	    <delete>
+	    	<fileset dir="${dir.classes}" includes="**/*.class" />
+			<fileset dir="${dir.classes}" includes="**/*.properties"/>
+	    </delete>
+	</target>
+	
+	<!-- ====================================================================
+	= javadoc
+	===================================================================== -->
+
+	<target name="javadoc" description="create all javadocs">
+    	<mkdir dir="${dir.javadoc}"/>
+		
+		<javadoc destdir="${dir.javadoc}"
+				encoding="${src.encoding}" docencoding="UTF-8" charset="UTF-8"
+				access="private" use="true" notree="false" nonavbar="false"
+				noindex="false" splitindex="true" author="true" version="true"
+				nodeprecatedlist="false" nodeprecated="false">
+			<fileset dir="${dir.src}" includes="**/*.java" />
+			<!--classpath refid="classpath"/-->
+		</javadoc>
+	</target>
+	
+	<target name="clean-javadoc" description="removes all javadoc. you should call this before checkin.">
+		<delete dir="${dir.javadoc}"/>
+	</target>
+
+	<!-- ====================================================================
+	= tests
+	===================================================================== -->
+	<target name="test" depends="compile" description="run junit tests">
+		<!--junit haltonfailure="true" haltonerror="true">
+			<classpath>
+				<pathelement location="${dir.classes}"/>
+				<path refid="classpath"/>
+			</classpath>
+			<test name="de.uni_leipzig.informatik.asv.humboldt.test.HumboldtTest" />
+		</junit-->
+	</target>
+	
+	<!-- ====================================================================
+	= cleaning up
+	===================================================================== -->
+	<target name="clean" depends="clean-classes" />
+	
+	<target name="mrproper" depends="clean, clean-javadoc, clean-jar, clean-dist"
+		                description="clean up everything (including javadoc and jarfiles). leave just pure sourcecode." />
+
+</project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2009 Patrick Mairif.
+ Copyright 2009-2013 Patrick Mairif.
  The program is distributed under the terms of the Apache License (ALv2).
 -->
 
@@ -21,6 +21,7 @@
 
 	<path id="classpath">
 		<pathelement path="${classpath}"/>
+		<fileset dir="lib" includes="commons-logging-${version.commons-logging}.jar" />
     </path>
 	
 	<target name="all" depends="javadoc, jar, dist, test"
@@ -74,9 +75,12 @@
 	
 	<target name="compile" description="just compile the source code">
 		<mkdir dir="${dir.classes}"/>
-    	<javac srcdir="${dir.src}" destdir="${dir.classes}" encoding="${src.encoding}" source="1.6">
+    	<javac srcdir="${dir.src}" destdir="${dir.classes}" encoding="${src.encoding}" source="1.6" includeantruntime="false">
 			<classpath refid="classpath"/>
 		</javac>
+		<copy todir="${dir.classes}">
+			<fileset dir="${dir.src}" includes="**/*.properties" />
+		</copy>
 	</target>
 
 	<target name="jar" depends="compile" description="create jcprogress.jar">

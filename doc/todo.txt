@@ -1,0 +1,6 @@
+- sth. like:
+  3950K .......... .......... .......... .......... .......... 47%  190K 32s
+  4000K .......... .......... .......... .......... .......... 47%  223K 32s
+  4050K .......... .......... .......... .......... .......... 48%  271K 31s
+
+- set of system properties to change the behavior of the indicator and an option to ignore them.

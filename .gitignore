@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings
+bin
+bin-tests
+dist
+jar

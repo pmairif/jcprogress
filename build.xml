@@ -75,7 +75,7 @@
 	
 	<target name="compile" description="just compile the source code">
 		<mkdir dir="${dir.classes}"/>
-    	<javac srcdir="${dir.src}" destdir="${dir.classes}" encoding="${src.encoding}" source="1.6" includeantruntime="false">
+    	<javac srcdir="${dir.src}" destdir="${dir.classes}" encoding="${src.encoding}" source="1.6" target="1.6" includeantruntime="false">
 			<classpath refid="classpath"/>
 		</javac>
 		<copy todir="${dir.classes}">

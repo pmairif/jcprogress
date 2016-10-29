@@ -1,0 +1,18 @@
+/*
+ * Copyright 2009-2016 Patrick Mairif.
+ * The program is distributed under the terms of the Apache License (ALv2).
+ */
+
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-logging:commons-logging:1.+'
+    testCompile 'junit:junit:4.+'
+}

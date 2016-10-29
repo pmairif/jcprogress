@@ -1,7 +1,4 @@
-.classpath
-.project
-.settings
-bin
-bin-tests
-dist
-jar
+/jcprogress.iml
+/.idea
+/build
+/.gradle

@@ -8,11 +8,45 @@ apply plugin: 'java-library-distribution'
 
 sourceCompatibility = 1.8
 
+project.version = "0.3.1"
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'commons-logging:commons-logging:1.+'
+    compile 'commons-logging:commons-logging:1.2'
     testCompile 'junit:junit:4.+'
+}
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": "jcprogress",
+                "Implementation-Version": version,
+                "Main-Class": "net.sf.jcprogress.demo.ConsoleDemo",
+                "Class-Path": "lib/commons-logging-1.2.jar"
+        )
+    }
+
+    metaInf {
+        from ('doc') {
+            include 'LICENSE', 'NOTICE'
+        }
+    }
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens   //for Ant filter
+
+distributions {
+    main {
+        contents {
+            from ('doc') {
+                include 'LICENSE', 'NOTICE'
+            }
+            from ('src/dist') {
+                filter(ReplaceTokens, tokens: ['VERSION': project.version])
+            }
+        }
+    }
 }

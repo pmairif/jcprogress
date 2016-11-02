@@ -1,7 +1,6 @@
 /*
  * RotCharIndicator.java
- * $Revision$
- * 
+ *
  * Copyright 2008 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
  * 

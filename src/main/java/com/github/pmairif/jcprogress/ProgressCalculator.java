@@ -29,11 +29,6 @@ public class ProgressCalculator {
 	 */
 	private int stalledTimeWindowMs;
 
-//	/**
-//	 * Logger for this class
-//	 */
-//	private final Log logger = LogFactory.getLog(ProgressCalculator.class);
-
 	/**
 	 * @param progressWhole
 	 * 		number of items to process at all

@@ -23,11 +23,6 @@ public class Checkpoint {
 
 	private final ProgressCalculator calculator;
 	
-//	/**
-//	 * Logger for this class
-//	 */
-//	private final Log logger = LogFactory.getLog(Checkpoint.class);
-
 	/**
 	 * @param progressWhole
 	 * 		number of items to process at all

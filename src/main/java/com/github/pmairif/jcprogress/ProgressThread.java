@@ -9,8 +9,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * abstract base class for progress indicators
@@ -81,7 +81,7 @@ public abstract class ProgressThread extends Thread {
 	/**
 	 * Logger for this class
 	 */
-	private final Log logger = LogFactory.getLog(ProgressThread.class);
+	private final Logger logger = LoggerFactory.getLogger(ProgressThread.class);
 
 	/**
 	 * create new progress indicator. 

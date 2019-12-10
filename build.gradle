@@ -3,27 +3,41 @@
  * The program is distributed under the terms of the Apache License (ALv2).
  */
 
-apply plugin: 'java'
-apply plugin: 'java-library-distribution'
+plugins {
+    id 'java'
+    id 'java-library-distribution'
+}
 
 sourceCompatibility = 1.8
 
 project.version = "0.3.1"
 
+ext {
+    versionJunit5 = "5.5.2"
+    versionSlf4j = "1.7.+"
+}
+
 repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
-    compile 'commons-logging:commons-logging:1.2'
-    testCompile 'junit:junit:4.+'
+    implementation "org.slf4j:slf4j-api:$versionSlf4j"
+    implementation "org.slf4j:slf4j-simple:$versionSlf4j"
+
+    testImplementation "org.junit.jupiter:junit-jupiter:${versionJunit5}"
+    testImplementation "org.junit.vintage:junit-vintage-engine:${versionJunit5}"
 }
 
 jar {
     manifest {
         attributes(
                 "Implementation-Title": "jcprogress",
-                "Implementation-Version": version,
+                "Implementation-Version": archiveVersion,
                 "Main-Class": "com.github.pmairif.jcprogress.demo.ConsoleDemo",
                 "Class-Path": "lib/commons-logging-1.2.jar"
         )

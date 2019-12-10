@@ -2,6 +2,7 @@ next:
     - build switched to gradle
     - java 8
     - changed java package to com.github.pmairif.jcprogress
+	- changed system property to disable progress indicator to jcprogress.disable
 
 0.3.1:
 	- avoid drawing too long progress bars with percentages above 100

@@ -147,7 +147,7 @@ public abstract class ProgressThread extends Thread {
 	
 	@Override
 	public void run() {
-		if (!System.getProperty("net.jcprogress.disable", "false").equalsIgnoreCase("true")) {
+		if (!System.getProperty("jcprogress.disable", "false").equalsIgnoreCase("true")) {
 			try {
 				while (!askedToStop) {
 					update(false);

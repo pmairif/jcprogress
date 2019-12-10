@@ -1,11 +1,10 @@
 /*
- * Copyright 2009-2016 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
  */
 
 plugins {
     id 'java'
-    id 'java-library-distribution'
 }
 
 sourceCompatibility = 1.8
@@ -27,40 +26,8 @@ test {
 
 dependencies {
     implementation "org.slf4j:slf4j-api:$versionSlf4j"
-    implementation "org.slf4j:slf4j-simple:$versionSlf4j"
 
     testImplementation "org.junit.jupiter:junit-jupiter:${versionJunit5}"
     testImplementation "org.junit.vintage:junit-vintage-engine:${versionJunit5}"
-}
-
-jar {
-    manifest {
-        attributes(
-                "Implementation-Title": "jcprogress",
-                "Implementation-Version": archiveVersion,
-                "Main-Class": "com.github.pmairif.jcprogress.demo.ConsoleDemo",
-                "Class-Path": "lib/commons-logging-1.2.jar"
-        )
-    }
-
-    metaInf {
-        from ('doc') {
-            include 'LICENSE', 'NOTICE'
-        }
-    }
-}
-
-import org.apache.tools.ant.filters.ReplaceTokens   //for Ant filter
-
-distributions {
-    main {
-        contents {
-            from ('doc') {
-                include 'LICENSE', 'NOTICE'
-            }
-            from ('src/dist') {
-                filter(ReplaceTokens, tokens: ['VERSION': project.version])
-            }
-        }
-    }
+    testImplementation "org.slf4j:slf4j-simple:$versionSlf4j"
 }

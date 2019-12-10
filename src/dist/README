@@ -1,4 +1,0 @@
-Try
-	java -jar jcprogress-@VERSION@.jar
-to see a small demo.
-The corresponding source file is net/sf/jcprogress/demo/ConsoleDemo.java.

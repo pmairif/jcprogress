@@ -1,12 +1,9 @@
 /*
- * ConsoleProgressBarThread.java
- * 
- * Copyright 2008-2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
- * 
- * charset=utf-8, tabstob=4
+ *
  */
-package net.sf.jcprogress;
+package com.github.pmairif.jcprogress;
 
 import java.io.PrintStream;
 import java.util.Locale;

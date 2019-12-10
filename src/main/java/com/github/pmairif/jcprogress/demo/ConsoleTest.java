@@ -1,14 +1,11 @@
 /*
- * ConsoleTest.java
- * 
- * Copyright 2008-2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
- * 
- * tabstop=4, charset=UTF-8
+ *
  */
-package net.sf.jcprogress.demo;
+package com.github.pmairif.jcprogress.demo;
 
-import net.sf.jcprogress.ConsoleProgressBarThread;
+import com.github.pmairif.jcprogress.ConsoleProgressBarThread;
 
 /**
  * @author pmairif

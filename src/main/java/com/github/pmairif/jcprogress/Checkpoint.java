@@ -1,12 +1,9 @@
 /*
- * Checkpoint.java (jcprogress)
- *
- * Copyright 2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
  *
- * tabstop=4, charset=UTF-8
  */
-package net.sf.jcprogress;
+package com.github.pmairif.jcprogress;
 
 /**
  * checkpoint
@@ -71,7 +68,7 @@ public class Checkpoint {
 
 	/**
 	 * @return
-	 * @see net.sf.jcprogress.ProgressCalculator#estimateEndTime()
+	 * @see ProgressCalculator#estimateEndTime()
 	 */
 	public long estimateEndTime() {
 		return this.calculator.estimateEndTime();

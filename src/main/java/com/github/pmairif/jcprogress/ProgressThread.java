@@ -1,12 +1,9 @@
 /*
- * ProgressThread.java
- * 
- * Copyright 2008-2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
- * 
- * charset=utf-8, tabstob=4
+ *
  */
-package net.sf.jcprogress;
+package com.github.pmairif.jcprogress;
 
 import java.util.Date;
 import java.util.Locale;
@@ -113,7 +110,7 @@ public abstract class ProgressThread extends Thread {
 		lastIndicatorUpdate = now;
 		lastInfoUpdate = now;
 		
-		this.resourceBundle = ResourceBundle.getBundle("net.sf.jcprogress.resources.ProgressResources", locale); //$NON-NLS-1$
+		this.resourceBundle = ResourceBundle.getBundle("com.github.pmairif.jcprogress.resources.ProgressResources", locale); //$NON-NLS-1$
 	}
 
 	/**

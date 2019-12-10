@@ -1,12 +1,9 @@
 /*
- * TimeDiff.java
- *
- * Copyright 2008 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
  *
- * charset=utf-8, tabstop=4
  */
-package net.sf.jcprogress;
+package com.github.pmairif.jcprogress;
 
 import java.text.NumberFormat;
 import java.util.Locale;

@@ -1,22 +1,19 @@
 /*
- * ConsoleDemo.java
- * 
- * Copyright 2008-2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
- * 
- * tabstop=4, charset=UTF-8
+ *
  */
-package net.sf.jcprogress.demo;
+package com.github.pmairif.jcprogress.demo;
 
 import java.util.Locale;
 
-import net.sf.jcprogress.BubbleCharIndicator;
-import net.sf.jcprogress.ConsoleProgressBarThread;
-import net.sf.jcprogress.ConsoleProgressIndicatorThread;
-import net.sf.jcprogress.ConsoleProgressThreadBase;
-import net.sf.jcprogress.CounterClockwiseRotCharIndicator;
-import net.sf.jcprogress.ProgressStatusProvider;
-import net.sf.jcprogress.ProgressThread;
+import com.github.pmairif.jcprogress.BubbleCharIndicator;
+import com.github.pmairif.jcprogress.ProgressThread;
+import com.github.pmairif.jcprogress.ConsoleProgressBarThread;
+import com.github.pmairif.jcprogress.ConsoleProgressIndicatorThread;
+import com.github.pmairif.jcprogress.ConsoleProgressThreadBase;
+import com.github.pmairif.jcprogress.CounterClockwiseRotCharIndicator;
+import com.github.pmairif.jcprogress.ProgressStatusProvider;
 
 /**
  * @author pmairif

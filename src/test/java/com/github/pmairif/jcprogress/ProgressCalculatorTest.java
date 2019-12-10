@@ -1,12 +1,9 @@
 /*
- * ProgressCalculatorTest.java (jcprogress)
- *
- * Copyright 2009 Patrick Mairif.
+ * Copyright 2009-2019 Patrick Mairif.
  * The program is distributed under the terms of the Apache License (ALv2).
  *
- * tabstop=4, charset=UTF-8
  */
-package net.sf.jcprogress;
+package com.github.pmairif.jcprogress;
 
 import static org.junit.Assert.*;
 
@@ -21,18 +18,13 @@ public class ProgressCalculatorTest {
 
 	private ProgressCalculator calc;
 	
-	//	/**
-	//	 * Logger for this class
-	//	 */
-	//	private final Log logger = LogFactory.getLog(ProgressCalculatorTest.class);
-
 	@Before
 	public void setUp() throws Exception {
 		calc = new ProgressCalculator(1000, 500);
 	}
 
 	/**
-	 * Test method for {@link net.sf.jcprogress.ProgressCalculator#getCurrentPercentage()}.
+	 * Test method for {@link ProgressCalculator#getCurrentPercentage()}.
 	 */
 	@Test
 	public void testGetCurrentPercentage() {
@@ -47,7 +39,7 @@ public class ProgressCalculatorTest {
 	}
 
 	/**
-	 * Test method for {@link net.sf.jcprogress.ProgressCalculator#estimateWholeTime(long)}.
+	 * Test method for {@link ProgressCalculator#estimateWholeTime(long)}.
 	 */
 	@Test
 	public void testEstimateWholeTime() {
@@ -56,7 +48,7 @@ public class ProgressCalculatorTest {
 		assertEquals(0, calc.getProgressCount());
 		assertEquals(1000, calc.getProgressWhole());
 //		assertTrue(calc.isStalled());
-		
+
 		assertEquals(0, calc.estimateWholeTime(start));
 		assertEquals(0, calc.estimateWholeTime(start+100));
 		

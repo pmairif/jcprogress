@@ -5,4 +5,4 @@ for i in lib/*.jar; do
   CP=$CP:$i
 done
 
-java -cp $CP net.sf.jcprogress.demo.ConsoleDemo
+java -cp $CP com.github.pmairif.jcprogress.demo.ConsoleDemo

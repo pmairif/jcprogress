@@ -24,7 +24,7 @@ jar {
         attributes(
                 "Implementation-Title": "jcprogress",
                 "Implementation-Version": version,
-                "Main-Class": "net.sf.jcprogress.demo.ConsoleDemo",
+                "Main-Class": "com.github.pmairif.jcprogress.demo.ConsoleDemo",
                 "Class-Path": "lib/commons-logging-1.2.jar"
         )
     }

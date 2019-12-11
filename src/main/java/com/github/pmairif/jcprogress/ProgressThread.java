@@ -5,12 +5,12 @@
  */
 package com.github.pmairif.jcprogress;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * abstract base class for progress indicators
@@ -18,27 +18,17 @@ import org.slf4j.LoggerFactory;
  * @author pmairif
  */
 public abstract class ProgressThread extends Thread {
-	protected ProgressStatusProvider statusProvider = null;
+	protected ProgressStatusProvider statusProvider;
 
-	protected ResourceBundle resourceBundle = null;
+	protected ResourceBundle resourceBundle;
 	
 	private ProgressCalculator wholeProgess;
 	
-	private Checkpoint checkpoint = null;
+	private Checkpoint checkpoint;
 	
-	private Checkpoint secondCheckpoint = null;
+	private Checkpoint secondCheckpoint;
 	
-	private long checkpointSwitchTime = 0;
-	
-//	/**
-//	 * elapsed time in milliseconds, when checkpoint was reached
-//	 */
-//	private long checkpointElapsedMs = 0;
-//	
-//	/**
-//	 * progress count since last checkpoint
-//	 */
-//	private int checkpointProgessCount = 0;
+	private long checkpointSwitchTime;
 	
 	/**
 	 * time window used to guess the time needed to do the whole job
@@ -157,7 +147,8 @@ public abstract class ProgressThread extends Thread {
 				update(true);			//chance to show 100%, if finished
 			}
 			catch (InterruptedException e) {
-				logger.error("run() - interrupted: "+e.getMessage()); //$NON-NLS-1$
+				logger.error("run() - interrupted: {}", e.getMessage()); //$NON-NLS-1$
+				interrupt();
 			}
 			
 			afterLastInvoking();
@@ -200,12 +191,12 @@ public abstract class ProgressThread extends Thread {
 	/**
 	 * show/update progress indicator
 	 */
-	abstract protected void show();
+	protected abstract void show();
 
 	/**
 	 * perhaps there is sth. to do after the last invoking (in stop or 100%)
 	 */
-	abstract public void afterLastInvoking();
+	public abstract void afterLastInvoking();
 	
 	public boolean isStalled() {
 		return checkpoint.getCalculator().isStalled();
@@ -278,7 +269,8 @@ public abstract class ProgressThread extends Thread {
 			}
 		}
 		catch (InterruptedException e) {
-			logger.error("waitToStop() - interrupted exception: "+e.getMessage()); //$NON-NLS-1$
+			logger.error("waitToStop() - interrupted exception: {}", e.getMessage()); //$NON-NLS-1$
+			interrupt();
 		}
 	}
 

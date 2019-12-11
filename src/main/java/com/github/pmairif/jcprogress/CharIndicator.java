@@ -5,9 +5,6 @@
  */
 package com.github.pmairif.jcprogress;
 
-/**
- * @author pmairif
- */
 public abstract class CharIndicator {
 
 	protected int rot = 0;
@@ -16,7 +13,7 @@ public abstract class CharIndicator {
 		//
 	}
 
-	abstract public char getNextChar();
+	public abstract char getNextChar();
 	
 	public char getNextChar(String chars) {
 		this.rot = (this.rot+1) % chars.length();

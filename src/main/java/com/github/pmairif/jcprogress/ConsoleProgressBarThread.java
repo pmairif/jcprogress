@@ -8,9 +8,6 @@ package com.github.pmairif.jcprogress;
 import java.io.PrintStream;
 import java.util.Locale;
 
-/**
- * @author pmairif
- */
 public class ConsoleProgressBarThread extends ConsoleProgressThreadBase {
 	/**
 	 * create new progress bar and set the counter to be reached. 

@@ -7,13 +7,11 @@ package com.github.pmairif.jcprogress;
 
 /**
  * provide progress indicator with up to date status information
- * @author pmairif
- * @since 1.0
  */
 public interface ProgressStatusProvider {
-	public String getProgressStatusText();
+	String getProgressStatusText();
 	
-	public int getCurrentProgressCount();
+	int getCurrentProgressCount();
 	
-	public int getWholeProcessCount();
+	int getWholeProcessCount();
 }

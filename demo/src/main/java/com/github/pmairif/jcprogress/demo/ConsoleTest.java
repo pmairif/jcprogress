@@ -12,7 +12,7 @@ import com.github.pmairif.jcprogress.ConsoleProgressBarThread;
  */
 public class ConsoleTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		ConsoleDemo test = new ConsoleDemo(2000000000, 1000);
 

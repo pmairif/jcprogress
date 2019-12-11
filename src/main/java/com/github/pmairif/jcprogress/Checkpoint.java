@@ -7,7 +7,6 @@ package com.github.pmairif.jcprogress;
 
 /**
  * checkpoint
- * @author pmairif
  */
 public class Checkpoint {
 
@@ -34,12 +33,16 @@ public class Checkpoint {
 	}
 
 	/**
-	 * @param startTime
-	 * 		start time in system time milliseconds
 	 * @param progressWhole
 	 * 		number of items to process at all
+	 * @param progressCurrent
+	 * 		progress count, when checkpoint was reached
+	 * @param elapsedMs
+	 * 		elapsed time in milliseconds, when checkpoint was reached
 	 * @param stalledTimeWindowMs
-	 *		milliseconds after which stalled activity is assumed 
+	 *		milliseconds after which stalled activity is assumed
+	 * @param now
+	 * 		timestamp in milliseconds, when checkpoint was reached
 	 */
 	public Checkpoint(int progressWhole, int progressCurrent, long elapsedMs, int stalledTimeWindowMs, long now) {
 		int progressRemaining = progressWhole - progressCurrent;
@@ -62,7 +65,6 @@ public class Checkpoint {
 	}
 
 	/**
-	 * @return
 	 * @see ProgressCalculator#estimateEndTime()
 	 */
 	public long estimateEndTime() {

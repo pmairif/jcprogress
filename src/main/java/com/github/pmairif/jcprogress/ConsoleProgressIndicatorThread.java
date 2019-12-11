@@ -9,7 +9,6 @@ import java.io.PrintStream;
 
 /**
  * no progress bar, just indicate that still sth. is happening
- * @author pmairif
  */
 public class ConsoleProgressIndicatorThread extends ConsoleProgressThreadBase {
 

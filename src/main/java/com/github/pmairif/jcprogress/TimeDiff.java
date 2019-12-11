@@ -10,8 +10,6 @@ import java.util.Locale;
 
 /**
  * represents a period of time
- *
- * @author pmairif
  */
 public class TimeDiff {
 

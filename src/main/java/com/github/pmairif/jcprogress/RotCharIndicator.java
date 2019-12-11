@@ -5,12 +5,9 @@
  */
 package com.github.pmairif.jcprogress;
 
-/**
- * @author pmairif
- */
 public class RotCharIndicator extends CharIndicator {
 
-	private static final String rotChars = "|/-\\"; //$NON-NLS-1$
+	private static final String ROT_CHARS = "|/-\\"; //$NON-NLS-1$
 
 	public RotCharIndicator() {
 		super();
@@ -18,7 +15,7 @@ public class RotCharIndicator extends CharIndicator {
 
 	@Override
 	public char getNextChar() {
-		return getNextChar(rotChars);
+		return getNextChar(ROT_CHARS);
 	}
 
 }

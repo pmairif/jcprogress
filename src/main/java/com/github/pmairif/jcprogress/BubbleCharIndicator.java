@@ -5,12 +5,9 @@
  */
 package com.github.pmairif.jcprogress;
 
-/**
- * @author pmairif
- */
 public class BubbleCharIndicator extends CharIndicator {
 
-	private static final String rotChars = ".oOo"; //$NON-NLS-1$
+	private static final String ROT_CHARS = ".oOo"; //$NON-NLS-1$
 
 	public BubbleCharIndicator() {
 		super();
@@ -21,6 +18,6 @@ public class BubbleCharIndicator extends CharIndicator {
 	 */
 	@Override
 	public char getNextChar() {
-		return getNextChar(rotChars);
+		return getNextChar(ROT_CHARS);
 	}
 }

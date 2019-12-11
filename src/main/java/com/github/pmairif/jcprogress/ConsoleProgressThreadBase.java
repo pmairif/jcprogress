@@ -11,16 +11,13 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * @author pmairif
- */
 public abstract class ConsoleProgressThreadBase extends ProgressThread {
 	/**
 	 * where to print the progress bar
 	 */
-	protected PrintStream out = null;
+	protected PrintStream out;
 	
-	protected CharIndicator charIndicator = null;
+	protected CharIndicator charIndicator;
 
 	private boolean showSummary = true;
 	
@@ -57,10 +54,10 @@ public abstract class ConsoleProgressThreadBase extends ProgressThread {
 	public void afterLastInvoking() {
 		if (isShowSummary()) {
 			TimeDiff timeDiff = new TimeDiff(getElapsedTime());
-			out.printf("\n%s: %s\n", resourceBundle.getString("took"), timeDiff.toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			out.printf("%n%s: %s%n", resourceBundle.getString("took"), timeDiff.toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		else {
-			out.println("");	//new line //$NON-NLS-1$
+			out.println();	//new line //$NON-NLS-1$
 		}
 	}
 	

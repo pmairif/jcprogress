@@ -15,3 +15,17 @@ More usage examples can be found in `demo/.../ConsoleDemo.java`, which can be st
 
 Have fun!
 
+## use in your project
+
+via gradle:
+```
+implementation 'com.github.pmairif:jcprogress:1.0.0'
+```
+or maven:
+```
+<dependency>
+  <groupId>com.github.pmairif</groupId>
+  <artifactId>jcprogress</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```

@@ -1,0 +1,31 @@
+/*
+ * Copyright 2009-2019 Patrick Mairif.
+ * The program is distributed under the terms of the Apache License (ALv2).
+ */
+
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":")
+
+    compile "org.slf4j:slf4j-simple:$versionSlf4j"
+}
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes(
+                "Main-Class": "com.github.pmairif.jcprogress.demo.ConsoleTest",
+        )
+    }
+}

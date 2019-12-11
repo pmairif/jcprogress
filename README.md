@@ -6,13 +6,26 @@ Provides a java library for easily displaying different progress indicators on t
 
 ## getting started
 
-Type `ant compile` to compile and
-`./test.sh` to start a little demonstration (CTRL-C to abbort)
+Type `./gradlew jar` to compile and run
+`java -jar demo/build/libs/demo.jar` to start a little demonstration (CTRL-C to abort)
 
-The Code of the demonstration is in `net/sf/jcprogress/demo/ConsoleTest.java`.
-More usage examples can be found in `net/sf/jcprogress/demo/ConsoleDemo.java`, which can be started with `./demo.sh`.
-
-If you want to work with eclipse, just extract `eclipse-settings.tgz`, it contains a set of files to get a working eclipse project.
+The Code of the demonstration is in `demo/src/main/java/com/github/pmairif/jcprogress/demo/ConsoleTest.java`.
+More usage examples can be found in `demo/.../ConsoleDemo.java`, which can be started with
+`java -cp demo/build/libs/demo.jar com.github.pmairif.jcprogress.demo.ConsoleDemo`.
 
 Have fun!
 
+## use in your project
+
+via gradle:
+```
+implementation 'com.github.pmairif:jcprogress:1.0.0'
+```
+or maven:
+```
+<dependency>
+  <groupId>com.github.pmairif</groupId>
+  <artifactId>jcprogress</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```

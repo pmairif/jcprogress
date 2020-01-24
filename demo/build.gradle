@@ -14,14 +14,14 @@ repositories {
 }
 
 dependencies {
-    compile project(":")
+    implementation project(":")
 
-    compile "org.slf4j:slf4j-simple:$versionSlf4j"
+    implementation "org.slf4j:slf4j-simple:$versionSlf4j"
 }
 
 jar {
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
     manifest {
         attributes(
